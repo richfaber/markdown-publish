@@ -12,7 +12,7 @@
 
 ## 설명서
 
-현재는 Viewer 만 구현되어 있습니다.
+현재는 Viewer 만 구현되어 있습니다.  
 `/document/` 에 파일을 복사하고, `http://localhost:3000/sample` 이라고 하면, 볼 수 있습니다.
 
 ## 주요 기능 (로드맵)
@@ -23,6 +23,13 @@
 - 이미지 클라우드 업로더 google photo / 
 
 ## 버그 and 기능개선
+
+
+## 의존성 모듈
+
+- [showdown](https://github.com/showdownjs/showdown)
+- [nunjucks](https://mozilla.github.io/nunjucks/)
+
 
 ## 개발자
 
