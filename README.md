@@ -6,9 +6,23 @@
 
 ## 시작 하기
 
-- `git clone https://github.com/richfaber/markdown-puslish.git`
-- `npm install`
-- `npm run start`
+파일 복제 하기
+
+```command
+> git clone https://github.com/richfaber/markdown-puslish.git
+```
+
+개발 의존성 모듈 설치하기
+
+```
+> npm install
+```
+
+프로그램 구동
+
+```
+> npm run start
+```
 
 ## 설명서
 
@@ -29,10 +43,3 @@
 
 - [showdown](https://github.com/showdownjs/showdown)
 - [nunjucks](https://mozilla.github.io/nunjucks/)
-
-
-## 개발자
-
-**이희원**
-
-- [diffthink.kr](https://frontend.diffthink.kr)

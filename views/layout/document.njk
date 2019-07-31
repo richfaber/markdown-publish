@@ -5,13 +5,26 @@
   <title>{{ title }}</title>
   <link rel="stylesheet" href="/resources/css/document.css">
 </head>
-
 <body>
-<div class="function">
+<h1 class="document-title">Markdown Viewer</h1>
 
+<div class="document-markdown" id="content">
+  {% block content %}
+    마크다운 영역
+  {% endblock %}
 </div>
-{% block content %}
-This is the default content
-{% endblock %}
+
+<div class="document-function">
+  {% block function %}
+    기능 UI 영역
+  {% endblock %}
+</div>
+
+<div class="document-script">
+  {% block script %}
+    마크다운 영역
+  {% endblock %}
+</div>
+
 </body>
 </html>

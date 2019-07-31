@@ -5,18 +5,18 @@ var path = require('path');
 var express = require('express');
 var router = express.Router();
 var showdown = require('showdown');
-var classMap = {
-    h1: 'ui large header',
-    h2: 'ui medium header',
-    ul: 'ui list',
-    li: 'ui item',
-    a: ''
+var shClassMap = {
+    h1: 'h1 header',
+    h2: 'h2 header',
+    ul: 'ul list',
+    li: 'li item',
+    a: 'a anchor'
 };
-const bindings = Object.keys(classMap)
+const shTagBinding = Object.keys(shClassMap)
     .map(key => ({
         type: 'output',
         regex: new RegExp(`<${key}(.*)>`, 'g'),
-        replace: `<${key} class="${classMap[key]}" $1>`
+        replace: `<${key} class="${shClassMap[key]}" $1>`
     }));
 var mdConverter = new showdown.Converter({
     noHeaderId: true,
@@ -24,10 +24,10 @@ var mdConverter = new showdown.Converter({
     tables: true,
     simpleLineBreaks: true,
     openLinksInNewWindow: true,
-    extensions: [...bindings]
+    extensions: [...shTagBinding]
 });
 
-/* GET home page. */
+/* GET Document page. */
 router.get("/:directory*?/:file", function (req, res, next) {
 
     var file = (req.params.directory) ? `${req.params.directory}/${req.params.file}` : req.params.file;
