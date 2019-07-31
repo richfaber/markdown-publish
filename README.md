@@ -6,9 +6,9 @@
 
 ## 시작 하기
 
-- `git clone https://github.com/richfaber/markdown-puslish.git` : 프로젝트 파일 다운로드
-- `npm install` : 의존성파일 설치
-- `npm run start` : 편집기 구동
+- `git clone https://github.com/richfaber/markdown-puslish.git`
+- `npm install`
+- `npm run start`
 
 ## 설명서
 
