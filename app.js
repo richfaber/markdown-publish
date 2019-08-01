@@ -7,6 +7,7 @@ var nunjucks = require('nunjucks');
 
 var indexRouter = require('./routes/index');
 var documentRouter = require('./routes/document');
+var APIRouter = require('./routes/api');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/document', documentRouter);
+app.use('/API', APIRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

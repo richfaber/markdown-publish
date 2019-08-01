@@ -1,5 +1,53 @@
 {% extends "layout/common.njk" %}
 
 {% block content %}
-하하핳
+
+    <div class="document-tree" id="documentTree"></div>
+
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+$(function() {
+
+    function recursiveCreateTree( item, ROOT ) {
+
+        var markup = "<ul>";
+        item.children.forEach(function( item ) {
+
+            var NAME = item.name,
+                PATH = item.path;
+
+            PATH = PATH.replace(new RegExp( ROOT.split('/').join('\\/'), 'g'), '/document');
+            if(item.type == 'directory') {
+
+                markup += '<li><span class="dir">' + NAME + '</span>';
+                markup += recursiveCreateTree( item, ROOT );
+                markup += '</li>';
+
+            } else {
+
+                markup += ('<li><a href="' + PATH + '" class="link" target="blank">' + NAME + '</a></li>');
+
+            }
+
+        });
+
+        markup += '</ul>';
+        return markup;
+
+    }
+
+    $.get('/API/document/tree').done(function(res) {
+
+        var tree = res,
+            ROOT = res.path,
+            markup;
+
+        markup = recursiveCreateTree(tree, ROOT);
+        $('#documentTree').append(markup);
+
+    })
+});
+</script>
 {% endblock %}

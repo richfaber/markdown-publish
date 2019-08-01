@@ -14,13 +14,13 @@
 
 개발 의존성 모듈 설치하기
 
-```
+```command
 > npm install
 ```
 
 프로그램 구동
 
-```
+```command
 > npm run start
 ```
 
@@ -43,3 +43,4 @@
 
 - [showdown](https://github.com/showdownjs/showdown)
 - [nunjucks](https://mozilla.github.io/nunjucks/)
+- [jQuery](https://code.jquery.com/)
