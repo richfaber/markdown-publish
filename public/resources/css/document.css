@@ -410,3 +410,28 @@ pre code, pre tt {
     background-color: transparent;
     border: none;
 }
+
+
+.document-markdown {
+    margin: 20px auto;
+    max-width: 980px;
+    background-color: #fff;
+    border: 1px solid #d1d5da;
+    border-radius: 3px;
+}
+
+.document-markdown__content {
+    padding: 15px 30px;
+}
+
+.document-markdown__title {
+    background-color: #f6f8fa;
+    border: 1px solid #d1d5da;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin: -1px -1px 0;
+    padding: 8px 16px;
+}
+
+.small-icon { display:inline-block; vertical-align: middle; margin:0 2px 0 0; }
+

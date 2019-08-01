@@ -33,14 +33,20 @@ let mdConverter = new showdown.Converter({
 /* GET Document page. */
 router.get("/:directory*?/:file", function (req, res, next) {
 
-    var file = decodeURIComponent( __dirname + '/../document/' + req.path );
+    var FILE = decodeURIComponent( DOCUMENT_ROOT + req.path ),
+        PATH;
 
-    fs.readFile( file, 'utf8', function(error, data) {
+    PATH = FILE.replace(DOCUMENT_ROOT, '/document');
+    fs.readFile( FILE, 'utf8', function(error, data) {
 
         if(error) {
             console.error(error);
         } else {
-            return res.render( 'document/index.njk', { markdown: mdConverter.makeHtml(data) } );
+            return res.render( 'document/index.njk', {
+                title: PATH,
+                fileName: req.params.file,
+                markdown: mdConverter.makeHtml(data)
+            } );
         }
 
         res.end();

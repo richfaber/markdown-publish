@@ -7,7 +7,7 @@ var nunjucks = require('nunjucks');
 
 var indexRouter = require('./routes/index');
 var documentRouter = require('./routes/document');
-var APIRouter = require('./routes/api');
+var APIRouter = require('./routes/API');
 
 var app = express();
 

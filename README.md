@@ -36,11 +36,17 @@
 - 블로그 포스팅
 - 이미지 클라우드 업로더 google photo / 
 
-## 버그 and 기능개선
+## 버그 & 기능개선
 
 
 ## 의존성 모듈
 
-- [showdown](https://github.com/showdownjs/showdown)
+### Server Side
+
 - [nunjucks](https://mozilla.github.io/nunjucks/)
+- [showdown](https://github.com/showdownjs/showdown)
+- [directory-tree](https://github.com/mihneadb/node-directory-tree)
+
+### Client Side
+
 - [jQuery](https://code.jquery.com/)
