@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const dirTree = require("directory-tree");
+const dir = require('node-dir');
 
 const router = express.Router();
 const showdown = require('showdown');
@@ -35,10 +36,15 @@ let mdConverter = new showdown.Converter({
 /* GET Local Tree */
 router.get("/document/tree", function (req, res, next) {
 
-    let documentTree = dirTree( DOCUMENT_ROOT, { normalizePath: true });
+    let documentTree = dirTree( DOCUMENT_ROOT, {
+        normalizePath: true,
+        extensions: /\.(md|html)$/,
+        attributes:['mode', 'mtime']
+    });
 
     res.setHeader('Content-Type', 'application/json');
     res.json( documentTree );
+
 
 });
 

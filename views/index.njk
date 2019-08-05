@@ -1,8 +1,15 @@
 {% extends "layout/common.njk" %}
 
+{% block headtitle %}
+    Index > Markdown Publish
+{% endblock %}
+
 {% block content %}
 
-    <div class="document-tree" id="documentTree"></div>
+    <div class="document-tree" id="documentTree">
+        <h2 class="document-tree__title">마크다운 목록</h2>
+        <div class="triangle-l"></div><div class="triangle-r"></div>
+    </div>
 
 {% endblock %}
 
@@ -21,13 +28,13 @@ $(function() {
             PATH = PATH.replace(new RegExp( ROOT.split('/').join('\\/'), 'g'), '/document');
             if(item.type == 'directory') {
 
-                markup += '<li><span class="dir">' + NAME + '</span>';
+                markup += '<li><button type="button" class="dir"><i class="fa fa-folder-o"></i>' + NAME + '</button>';
                 markup += recursiveCreateTree( item, ROOT );
                 markup += '</li>';
 
             } else {
 
-                markup += ('<li><a href="' + PATH + '" class="link" target="blank">' + NAME + '</a></li>');
+                markup += ('<li><a href="' + PATH + '" class="link" target="blank"><span class="fa fa-file-text-o"></span>' + NAME + '</a></li>');
 
             }
 
@@ -35,6 +42,33 @@ $(function() {
 
         markup += '</ul>';
         return markup;
+
+    }
+
+    function treeView( selector ) {
+
+        var $selectTree = $( selector ),
+            $buttons = $selectTree.find('button.dir');
+
+        function init() {
+
+            var $firstChildren = $selectTree.find('> ul > li');
+            $buttons.on("click", toggleList);
+
+        }
+
+        function toggleList(e) {
+
+            var $self = $(this),
+                $parent = $self.closest('li');
+
+            $parent.toggleClass('active');
+
+        }
+
+        return {
+            init: init
+        }
 
     }
 
@@ -47,7 +81,9 @@ $(function() {
         markup = recursiveCreateTree( tree, ROOT );
         $('#documentTree').append( markup );
 
-    })
+        treeView( '#documentTree' ).init();
+
+    });
 });
 </script>
 {% endblock %}

@@ -2,9 +2,13 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>{{ title }}</title>
+    <title>{% block headtitle %}empty{% endblock %}</title>
     <link rel="stylesheet" href="/resources/css/document.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script type="text/javascript" src="/vendor/jquery-toast-plugin-master/dist/jquery.toast.min.js"></script>
+    <link rel="stylesheet" href="/vendor/jquery-toast-plugin-master/dist/jquery.toast.min.css">
+
 </head>
 <body>
 <h1 class="document-title">Markdown Viewer</h1>
@@ -23,7 +27,7 @@
 
 <div class="document-script">
     {% block script %}
-        마크다운 영역
+        스크립트 영역
     {% endblock %}
 </div>
 
