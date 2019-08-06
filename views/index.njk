@@ -1,14 +1,23 @@
 {% extends "layout/common.njk" %}
 
-{% block headtitle %}
-    Index > Markdown Publish
+{% block headtitle %}Index{% endblock %}
+
+{% block headresource %}
+    <script type="text/javascript" src="/vendor/jquery-toast-plugin-master/dist/jquery.toast.min.js"></script>
+    <link rel="stylesheet" href="/vendor/jquery-toast-plugin-master/dist/jquery.toast.min.css">
+
+    <link rel="stylesheet" href="/resources/css/index.css" />
 {% endblock %}
 
 {% block content %}
 
-    <div class="document-tree" id="documentTree">
-        <h2 class="document-tree__title">마크다운 목록</h2>
-        <div class="triangle-l"></div><div class="triangle-r"></div>
+    <div class="document-index">
+
+        <div class="document-tree" id="documentTree">
+            <h2 class="document-tree__title">마크다운 목록</h2>
+            <div class="triangle-l"></div><div class="triangle-r"></div>
+        </div>
+
     </div>
 
 {% endblock %}

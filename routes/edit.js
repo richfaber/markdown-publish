@@ -3,7 +3,6 @@
 const fs = require('fs');
 const path = require('path');
 const express = require('express');
-const dirTree = require("directory-tree");
 
 const router = express.Router();
 const showdown = require('showdown');
@@ -31,29 +30,13 @@ let mdConverter = new showdown.Converter({
     extensions: [...shTagBinding]
 });
 
+/* GET Document page. */
+router.get("/:directory*?/:file", function (req, res, next) {
 
-/* GET Local Tree */
-router.get("/document/tree", function (req, res, next) {
-
-    let documentTree = dirTree( DOCUMENT_ROOT, {
-        normalizePath: true,
-        extensions: /\.(md|html)$/,
-        attributes:['mode', 'mtime']
-    });
-
-    res.setHeader('Content-Type', 'application/json');
-    res.json( documentTree );
-
-
-});
-
-/* GET Local Tree */
-router.get("/markup/:directory*?/:file", function (req, res, next) {
-
-    var FILE = decodeURIComponent( DOCUMENT_ROOT + req.path.replace(/^(\/markup\/document)/g, '') ),
+    var FILE = decodeURIComponent( DOCUMENT_ROOT + req.path ),
         PATH;
 
-    PATH = FILE.replace(DOCUMENT_ROOT, '');
+    PATH = FILE.replace(DOCUMENT_ROOT, '/document');
     fs.readFile( FILE, 'utf8', function(error, data) {
 
         if(error) {
@@ -62,15 +45,16 @@ router.get("/markup/:directory*?/:file", function (req, res, next) {
 
         } else {
 
-            res.setHeader('Content-Type', 'application/json');
-            return res.json( {
-                result: 'ok',
-                markup: mdConverter.makeHtml(data),
-                path: PATH,
-                fileName: req.params.file
+            return res.render( 'edit/index.njk', {
+                title: PATH,
+                fileName: req.params.file,
+                markdownData: data,
+                markdownToHtml: mdConverter.makeHtml(data)
             } );
 
         }
+
+        res.end();
 
     });
 

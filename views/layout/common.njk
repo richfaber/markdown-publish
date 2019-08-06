@@ -2,21 +2,20 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-    <title>{% block headtitle %}empty{% endblock %}</title>
-    <meta name="description" content="">
-    <meta name="author" content="richready2011@gmail.com">
-    <link rel="stylesheet" href="/resources/css/styles.css">
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>{% block headtitle %}{% endblock %} || Markdown Puslish</title>
+    {% include "./include.resource.njk" %}
+    {% block headresource %}{% endblock %}
 </head>
 
 <body>
-<div class="document-content" id="content">
+
+<div class="document-content" id="documentContent">
     {% block content %}
         This is the default content
     {% endblock %}
 </div>
 
-<div class="document-script">
+<div class="document-script" id="documentScript">
     {% block script %}
         마크다운 영역
     {% endblock %}

@@ -6,7 +6,8 @@ var logger = require('morgan');
 var nunjucks = require('nunjucks');
 
 var indexRouter = require('./routes/index');
-var documentRouter = require('./routes/document');
+var viewRouter = require('./routes/view');
+var editRouter = require('./routes/edit');
 var APIRouter = require('./routes/API');
 
 var app = express();
@@ -29,7 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/document', documentRouter);
+app.use('/view', viewRouter);
+app.use('/edit', editRouter);
 app.use('/API', APIRouter);
 
 // catch 404 and forward to error handler
