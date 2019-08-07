@@ -1,36 +1,7 @@
 @charset "UTF-8";
+@import "./common/_styles.css";
 
-.document-title {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    line-height: 40px;
-    z-index: 999;
-    text-align: center;
-    font-size: 11px;
-    color: #fff;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 10s ease infinite;
-    -moz-animation: Gradient 10s ease infinite;
-    animation: Gradient 10s ease infinite;
-}
-
-@keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
-}
-
-.document-function {
+.view-function {
     position: fixed;
     top: 7px;
     left: 10px;
@@ -39,34 +10,7 @@
     overflow: hidden;
 }
 
-.document-function .button {
-    border: 0;
-    cursor: pointer;
-    color: #fff;
-    font-size: 11px;
-    line-height: 24px;
-    text-shadow: 0 1px 0 rgba(0,0,0,.2);
-    float: left;
-    padding: 0 10px 0;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff4d), to(#fff0));
-    background-image: -webkit-linear-gradient(top, #ffffff4d, #fff0);
-    background-image: -moz-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-    background-image: -ms-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-    background-image: -o-linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-    background-image: linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0));
-}
-
-.document-function .button-copyhtml {
-    background-color: #269CE9;
-    border-color: #269CE9;
-}
-
-.document-function .button-copyimage {
-    background-color: #c0392b;
-    border-color: #c0392b;
-}
-
-.document-markdown {
+.view-markdown {
     margin: 80px auto 40px;
     max-width: 980px;
     background-color: #fff;
@@ -74,11 +18,11 @@
     border-radius: 3px;
 }
 
-.document-markdown__content {
+.view-markdown__content {
     padding: 15px 30px;
 }
 
-.document-markdown__title {
+.view-markdown__title {
     background-color: #f6f8fa;
     border: 1px solid #d1d5da;
     border-top-left-radius: 3px;
@@ -87,7 +31,6 @@
     padding: 8px 16px;
 }
 
-.small-icon { display:inline-block; vertical-align: middle; margin:0 2px 0 0; }
 
 
 /*
